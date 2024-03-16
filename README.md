@@ -57,7 +57,7 @@ Brief description of the project.
 ### Backend Setup
 
 1. Clone the repository.
-2. Navigate to the `backend` directory.
+2. Navigate to the `server` directory.
 3. Install dependencies: `npm install`.
 4. Create a `.env` file based on the `.env.example` template and configure environment variables.
 5. Start the server: `npm start`.
