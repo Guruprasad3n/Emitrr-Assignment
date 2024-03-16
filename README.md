@@ -1,10 +1,10 @@
 # Exploding Kitten
 
-## Description
+<!-- ## Description -->
 
-Brief description of the project.
+<!-- Brief description of the project.
 
-## Table of Contents
+## Table of Contents -->
 
 <!-- - [Features](#features) -->
 - [Technologies Used](#technologies-used)
