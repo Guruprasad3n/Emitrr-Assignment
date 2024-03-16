@@ -6,20 +6,20 @@ Brief description of the project.
 
 ## Table of Contents
 
-- [Features](#features)
+<!-- - [Features](#features) -->
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
   - [Frontend Setup](#frontend-setup)
   - [Backend Setup](#backend-setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+<!-- - [Usage](#usage) -->
+<!-- - [Contributing](#contributing)
+- [License](#license) -->
 
-## Features
+<!-- ## Features
 
 - Feature 1
 - Feature 2
-- ...
+- ... -->
 
 ## Technologies Used
 
