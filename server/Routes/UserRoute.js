@@ -48,7 +48,7 @@ router.use(verifyToken);
 
 router.get("/:id", UserBYId);
 router.get("/", getAllUsers);
-router.patch('/update-score/:userId', updateUserPoints);
+router.patch("/update-score/:userId", updateUserPoints);
 router.get("/game/start", startGame);
 
 module.exports = router;
