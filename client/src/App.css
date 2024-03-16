@@ -1,0 +1,13 @@
+ #root {
+  max-width: 1280px;
+  margin: 0;
+  /* padding: ; */
+}
+.signup>h1{
+  text-align: center;
+
+}
+.link-style {
+  color: red;
+  text-decoration: underline;
+}
