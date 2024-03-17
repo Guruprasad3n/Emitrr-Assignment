@@ -14,9 +14,8 @@ import {
   Heading,
   Text,
   Flex,
-  Grid,
-  GridItem,
   Center,
+  Container,
 } from "@chakra-ui/react";
 import Rules from "./Rules";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +26,7 @@ const Game = () => {
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [bestScore, setBestScore] = useState([]);
+  const [drawnCardIndex, setDrawnCardIndex] = useState(null);
   const { deck, gameInProgress, drawnCards, gameOver, winGame, wins } =
     useSelector((state) => state.game);
 
@@ -36,6 +35,8 @@ const Game = () => {
   };
 
   const handleDrawCard = () => {
+    const drawnIndex = Math.floor(Math.random() * deck.length);
+    setDrawnCardIndex(drawnIndex);
     dispatch(drawCard());
   };
 
@@ -59,8 +60,10 @@ const Game = () => {
       "green.200",
       "yellow.200",
       "purple.200",
-    ]; // Define array of colors
-    return colors[index % colors.length];
+    ];
+    return drawnCardIndex === index
+      ? "orange.200"
+      : colors[index % colors.length];
   };
 
   const fetchBestScores = async () => {
@@ -79,7 +82,8 @@ const Game = () => {
       navigate("/login");
     }
     fetchBestScores();
-  }, [token]);
+  }, [token, winGame]);
+
   return (
     <>
       <Flex justifyContent={"space-between"} m={5}>
@@ -102,10 +106,10 @@ const Game = () => {
               <Text fontSize="lg" mb="2">
                 Deck:
               </Text>
-              <Box margin={"auto"}>
-                <Grid templateColumns="repeat(5, 1fr)" gap={2}>
+              <Box margin={"auto"} display="flex" justifyContent="center">
+                <Flex templateColumns="repeat(5, 1fr)" gap={2}>
                   {deck.map((card, index) => (
-                    <GridItem key={index}>
+                    <Container key={index}>
                       <Box
                         bg={getColor(index)}
                         p="2"
@@ -122,9 +126,9 @@ const Game = () => {
                       >
                         <Text fontWeight={500}>Reveal Card</Text>
                       </Box>
-                    </GridItem>
+                    </Container>
                   ))}
-                </Grid>
+                </Flex>
               </Box>
               <Center>
                 <Button onClick={handleDrawCard} colorScheme="green" mt="4">
@@ -188,8 +192,8 @@ const Game = () => {
                     boxShadow="md"
                     borderWidth="1px"
                     borderColor="gray.200"
-                    h="150px"
-                    w="150px"
+                    h="120px"
+                    w="120px"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"

@@ -22,7 +22,6 @@ import { useSelector } from "react-redux";
 function Score() {
   const [bestScore, setBestScore] = useState([]);
   const { winGame } = useSelector((state) => state.game);
-  // const dispatch = use
   const fetchBestScores = async () => {
     try {
       const response = await axiosInstance.get("/users/best-score");
@@ -35,7 +34,7 @@ function Score() {
   };
   useEffect(() => {
     fetchBestScores();
-  }, [winGame]);
+  }, [winGame, bestScore]);
 
   return (
     <>
