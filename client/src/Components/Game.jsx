@@ -52,6 +52,17 @@ const Game = () => {
     dispatch(updateWins());
   };
 
+  const getColor = (index) => {
+    const colors = [
+      "red.200",
+      "blue.200",
+      "green.200",
+      "yellow.200",
+      "purple.200",
+    ]; // Define array of colors
+    return colors[index % colors.length];
+  };
+
   const fetchBestScores = async () => {
     try {
       const response = await axiosInstance.get("/users/best-score");
@@ -96,7 +107,7 @@ const Game = () => {
                   {deck.map((card, index) => (
                     <GridItem key={index}>
                       <Box
-                        bg="#fff"
+                        bg={getColor(index)}
                         p="2"
                         borderRadius="md"
                         textAlign="center"
@@ -109,7 +120,7 @@ const Game = () => {
                         alignItems="center"
                         justifyContent="center"
                       >
-                        <Text>{card.type}</Text>
+                        <Text fontWeight={500}>Reveal Card</Text>
                       </Box>
                     </GridItem>
                   ))}
